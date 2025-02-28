@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 16:10:34 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/28 14:38:52 by ygorget          ###   ########.fr       */
+/*   Created: 2025/02/27 16:11:28 by ygorget           #+#    #+#             */
+/*   Updated: 2025/02/28 13:32:43 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main(void)
+#include <iostream>
+#include <string>
+#include <map>
+
+class Harl
 {
-	Harl h;
-	
-	std::cout << "\ntest level debug\n";
-	h.complain("DEBUG");
+	private:
+		void	debug();
+		void	info();
+		void	warning();
+		void	error();
+	public:
+		Harl();
+		~Harl();
 
-	std::cout << "\ntest level info\n";
-	h.complain("INFO");
+		void	complain(std::string level);
+};
 
-	std::cout << "\ntest level warning\n";
-	h.complain("WARNING");
-
-	std::cout << "\ntest level error\n";
-	h.complain("ERROR");
-
-	std::cout << "\ntest with a wrong level\n";
-	h.complain("DEFAULT");
-	return (0);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:11:28 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/27 16:15:20 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:33:58 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define HARL_HPP
 
 #include <iostream>
+#include <string>
+
 
 class Harl
 {

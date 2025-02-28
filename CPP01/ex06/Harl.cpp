@@ -6,12 +6,11 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:34:55 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/28 15:55:48 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:59:12 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-
 
 void	Harl::debug(void){
 	std::cout << "did you have a good level ?\n";
@@ -40,13 +39,10 @@ void    Harl::complain(std::string level){
 	{
 		case 0:
 			Harl::debug();
-			break;
 		case 1:
 			Harl::info();
-			break;
 		case 2:
 			Harl::warning();
-			break;
 		case 3:
 			Harl::error();
 			break;

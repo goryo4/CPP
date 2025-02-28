@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/02/27 16:06:28 by ygorget           #+#    #+#              #
-#    Updated: 2025/02/28 14:39:24 by ygorget          ###   ########.fr        #
+#    Created: 2025/02/28 15:10:21 by ygorget           #+#    #+#              #
+#    Updated: 2025/02/28 15:10:31 by ygorget          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= Harl
+NAME= harlFilter
 CC= c++
 FLAGS= -Wall -Werror -Wextra -std=c++98
 SRC= main.cpp	Harl.cpp\
