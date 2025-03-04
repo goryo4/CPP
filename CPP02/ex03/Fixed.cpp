@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:10:51 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/04 16:00:17 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/04 14:43:18 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 Fixed::Fixed (){
 	nbr = 0;
-	std::cout << "Default constructor called\n";
+	//std::cout << "Default constructor called\n";
 }
 
 Fixed::Fixed(const Fixed& a){
 	nbr = a.getRawbits();
-	std::cout << "Copy constructor called\n";
+	//std::cout << "Copy constructor called\n";
 }
 
 Fixed::Fixed(int nb){
 	nbr = nb * (1 << _fix);
-	std::cout << "int constructor called\n";
+	//std::cout << "int constructor called\n";
 }
 
 Fixed::Fixed(float nb){
 	nbr = static_cast<int>(roundf(nb * (1 << _fix)));
-	std::cout << "float constructor called\n";
+	//std::cout << "float constructor called\n";
 }
 
 float	Fixed::toFloat(void) const{
@@ -44,7 +44,21 @@ bool	Fixed::operator>(Fixed& a) const{
 		return (false);
 }
 
+bool	Fixed::operator>(const Fixed& a) const{
+	if (nbr > a.getRawbits())
+		return (true);
+	else
+		return (false);
+}
+
 bool	Fixed::operator<(Fixed& a) const{
+	if (nbr < a.getRawbits())
+		return (true);
+	else
+		return (false);
+}
+
+bool	Fixed::operator<(const Fixed& a) const{
 	if (nbr < a.getRawbits())
 		return (true);
 	else
@@ -125,7 +139,7 @@ Fixed Fixed::max(Fixed& a, Fixed& b){
 }
 
 Fixed Fixed::max(const Fixed& a, const Fixed& b){
-	if (a.getRawbits() > b.getRawbits())
+	if (a > b)
 		return (a);
 	else
 		return (b);
@@ -139,7 +153,7 @@ Fixed Fixed::min(Fixed& a, Fixed& b){
 }
 
 Fixed Fixed::min(const Fixed& a, const Fixed& b){
-	if (a.getRawbits() < b.getRawbits())
+	if (a < b)
 		return (a);
 	else
 		return (b);
@@ -167,5 +181,5 @@ void	Fixed::setRawBits(int const raw){
 }
 
 Fixed::~Fixed (){
-	std::cout << "Destructor called\n";
+	//std::cout << "Destructor called\n";
 }

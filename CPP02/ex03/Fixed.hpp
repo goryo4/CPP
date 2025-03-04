@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:01:12 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/04 15:59:37 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/04 12:38:55 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ class Fixed {
 		int toInt() const;
 
 		bool operator>(Fixed& a) const;
+		bool operator>(const Fixed& a) const;
 		bool operator<(Fixed& a) const;
+		bool operator<(const Fixed& a) const;
 		bool operator>=(Fixed& a) const;
 		bool operator<=(Fixed& a) const;
 		bool operator==(Fixed& a) const;
