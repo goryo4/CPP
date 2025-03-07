@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:09:20 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/06 15:10:41 by ygorget          ###   ########.fr       */
+/*   Created: 2025/03/07 14:03:18 by ygorget           #+#    #+#             */
+/*   Updated: 2025/03/07 14:03:58 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-int main(void){
-    ClapTrap character("Bob");
-    
-    character.attack("mob1");
-    character.beRepaired(2);
-    character.takeDamage(12);
-    
-}
+#include "WrongAnimal.hpp"
+
+class   WrongCat : public WrongAnimal{
+    public:
+        WrongCat();
+		WrongCat(WrongCat& a);
+		WrongCat& operator=(WrongCat& a);
+		~WrongCat();
+
+		void makeSound();
+};
+
+#endif

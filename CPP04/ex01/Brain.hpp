@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:09:20 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/06 15:10:41 by ygorget          ###   ########.fr       */
+/*   Created: 2025/03/07 14:33:01 by ygorget           #+#    #+#             */
+/*   Updated: 2025/03/07 15:04:43 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-int main(void){
-    ClapTrap character("Bob");
-    
-    character.attack("mob1");
-    character.beRepaired(2);
-    character.takeDamage(12);
-    
-}
+#include "Animal.hpp"
+
+class   Brain{
+    private:
+        std::string ideas[100];
+    public:
+        Brain();
+		Brain(Brain& a);
+		Brain& operator=(Brain& a);
+		~Brain();
+
+        void    setIdeas(Animal& a);
+};
+
+
+#endif

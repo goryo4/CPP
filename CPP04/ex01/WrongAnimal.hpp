@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:09:20 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/06 15:10:41 by ygorget          ###   ########.fr       */
+/*   Created: 2025/03/07 14:01:41 by ygorget           #+#    #+#             */
+/*   Updated: 2025/03/07 14:17:55 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
-int main(void){
-    ClapTrap character("Bob");
-    
-    character.attack("mob1");
-    character.beRepaired(2);
-    character.takeDamage(12);
-    
-}
+#include <iostream>
+
+class   WrongAnimal{
+    protected:
+        std::string type;
+	public:
+		WrongAnimal();
+		WrongAnimal(WrongAnimal& a);
+		WrongAnimal& operator=(WrongAnimal& a);
+		 ~WrongAnimal();
+
+		void makeSound();
+		std::string getType();
+};
+
+#endif

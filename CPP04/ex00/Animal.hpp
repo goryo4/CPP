@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:09:20 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/06 15:10:41 by ygorget          ###   ########.fr       */
+/*   Created: 2025/03/07 12:27:38 by ygorget           #+#    #+#             */
+/*   Updated: 2025/03/07 13:36:55 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-int main(void){
-    ClapTrap character("Bob");
-    
-    character.attack("mob1");
-    character.beRepaired(2);
-    character.takeDamage(12);
-    
-}
+#include <iostream>
+
+class   Animal{
+    protected:
+        std::string type;
+	public:
+		Animal();
+		Animal(Animal& a);
+		Animal& operator=(Animal& a);
+		virtual ~Animal();
+
+		virtual void makeSound();
+		std::string getType();
+};
+
+#endif

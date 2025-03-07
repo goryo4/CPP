@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:08:55 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 12:19:57 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/07 12:21:48 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,16 @@ ClapTrap &ClapTrap::operator=(ClapTrap& a){
 		Energy_points = a.Energy_points;
 		Attack_damage = a.Attack_damage;
 	}
-	std::cout << "ClapTrap operator created\n";
+	std::cout << "ClapTrap operation created\n";
 	return (*this);
 }
+
+/* ************************************************************************** */
+/*                         	GETTER / SETTER                                   */
+/* ************************************************************************** */
+std::string ClapTrap::getName(){ return (Name);}
+
+void	ClapTrap::setName(std::string _Name){Name = _Name;}
 
 /* ************************************************************************** */
 /*                         		FONCTION                                      */

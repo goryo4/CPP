@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:09:20 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/06 15:10:41 by ygorget          ###   ########.fr       */
+/*   Created: 2025/03/06 14:26:16 by ygorget           #+#    #+#             */
+/*   Updated: 2025/03/07 11:28:30 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
-int main(void){
-    ClapTrap character("Bob");
-    
-    character.attack("mob1");
-    character.beRepaired(2);
-    character.takeDamage(12);
-    
-}
+#include "FragTrap.hpp"
+
+class DiamondTrap : public ScavTrap, public FragTrap{
+    private:
+        std::string	Name;
+	public:
+		DiamondTrap();
+		DiamondTrap(std::string _Name);
+		DiamondTrap(DiamondTrap& a);
+		DiamondTrap& operator=(DiamondTrap& a);
+		
+		void	whoAmI();
+};
+
+#endif

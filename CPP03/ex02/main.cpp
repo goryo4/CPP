@@ -6,17 +6,23 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:09:20 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/06 15:10:41 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/07 12:11:42 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void){
-    ClapTrap character("Bob");
+    FragTrap character;
+    FragTrap character2("Sam");
+    FragTrap character3("Bob");
+	
+    character.attack("tom");
+    character = character2;
     
-    character.attack("mob1");
-    character.beRepaired(2);
-    character.takeDamage(12);
-    
+    character.beRepaired(50);
+    character.attack("tom");
+    character.attack("tom");
+    character.attack("tom");
+    character.highFivesGuys();
 }

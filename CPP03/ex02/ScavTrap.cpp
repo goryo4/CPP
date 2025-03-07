@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:08:55 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 12:19:57 by ygorget          ###   ########.fr       */
+/*   Created: 2025/03/06 10:43:05 by ygorget           #+#    #+#             */
+/*   Updated: 2025/03/06 16:36:26 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 /* ************************************************************************** */
 /*                         		CONSTRUCTOR                                   */
 /* ************************************************************************** */
-ClapTrap::ClapTrap(){
-	Name = "tom";
-	Hit_points = 0;
-	Energy_points = 0;
-	Attack_damage = 0;
+ScavTrap::ScavTrap(): ClapTrap(){
+	Hit_points = 100;
+	Energy_points = 50;
+	Attack_damage = 20;
+	std::cout << "ScavTrap default created\n";
 }
 
-ClapTrap::ClapTrap(std::string _Name){
-    Name = _Name;
-	Hit_points = 10;
-	Energy_points = 10;
-	Attack_damage = 0;
-    std::cout << "constructor called\n";
-}
-
-ClapTrap::ClapTrap(ClapTrap& a){
-	*this = a;
+ScavTrap::ScavTrap(ScavTrap& a): ClapTrap(a){
 	std::cout << "ClapTrap copy created\n";
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap& a){
+ScavTrap &ScavTrap::operator=(ScavTrap& a){
 	if (this != &a)
 	{
 		Name = a.Name;
@@ -43,53 +34,42 @@ ClapTrap &ClapTrap::operator=(ClapTrap& a){
 		Energy_points = a.Energy_points;
 		Attack_damage = a.Attack_damage;
 	}
-	std::cout << "ClapTrap operator created\n";
+	std::cout << "ClapTrap copy created\n";
 	return (*this);
 }
+
+ScavTrap::ScavTrap(std::string _Name) : ClapTrap(_Name) {
+	Hit_points = 100;
+	Energy_points = 50;
+	Attack_damage = 20;
+	std::cout << "ScavTrap " << _Name << " created\n";
+}
+
 
 /* ************************************************************************** */
 /*                         		FONCTION                                      */
 /* ************************************************************************** */
-void	ClapTrap::attack(const std::string& target){
+void	ScavTrap::attack(const std::string& target){
 	if (Hit_points < 0)
 		return ;
 	if (Energy_points > 0)
 		Energy_points -= 1;
 	else
 	{
-		std::cout << "Claptrap " << Name << "has not energy\n";
+		std::cout << "ScavTrap " << Name << "has not energy\n";
 		return ;
 	}
-	std::cout << "ClapTrap " << Name << " attacks " << target << ", causing " << Attack_damage << " points of damage!\n";
+	std::cout << "ScavTrap " << Name << " attacks " << target << ", causing " << Attack_damage << " points of damage!\n";
 }
 
-void	ClapTrap::takeDamage(unsigned int amount){
-	if (Hit_points < 0)
-		return ;
-	std::cout << "ClapTrap " << Name << " take " << amount << " points of damage!\n";
-	if (Hit_points < 0)
-		std::cout << "Claptrap " << Name << "is died\n";
+void	ScavTrap::guardGate(){
+	std::cout << "ScavTrap " << Name << " is now in Gate keeper mode.\n";
 }
 
-void	ClapTrap::beRepaired(unsigned int amount){
-	if (Hit_points < 0)
-		return ;
-	if (Energy_points > 0)
-		Energy_points -= 1;
-	else
-	{
-		std::cout << "Claptrap " << Name << "has not energy\n";
-		return ;
-	}
-	std::cout << "ClapTrap " << Name << " repairs itself, it regains " << amount << " hit points\n";
-	Hit_points -= amount;
-	if (Hit_points < 0)
-		std::cout << "Claptrap " << Name << "is died\n";
-}
 
 /* ************************************************************************** */
 /*                         		DESTRUCTOR                                    */
 /* ************************************************************************** */
-ClapTrap::~ClapTrap(){
-    std::cout << "destructor called\n";
+ScavTrap::~ScavTrap(){
+	std::cout << "ScavTrap destructor called\n";
 }
