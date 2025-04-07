@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:45:45 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 13:37:44 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/28 13:50:15 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class   Cat : public Animal{
     public:
         Cat();
-		Cat(Cat& a);
-		Cat& operator=(Cat& a);
+		Cat(const Cat& a);
+		Cat& operator=(const Cat& a);
 		~Cat();
 
-		void makeSound();
+		void makeSound() const;
 };
 
 #endif

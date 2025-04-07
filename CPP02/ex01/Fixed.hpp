@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:01:12 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/03 16:50:04 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/03 13:47:42 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 
 class Fixed {
     private:
-        int nbr;
-        static const int _fix = 8;
+		int nbr;
+		static const int _fix = 8;
 	public:
 		Fixed();
-		Fixed(const Fixed& a);
 		Fixed(const int nb);
 		Fixed(const float nb);
+		Fixed(const Fixed& a);
+		Fixed& operator=(const Fixed& a);
 		~Fixed();
 		
 		int	getRawbits() const;

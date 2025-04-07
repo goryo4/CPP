@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:01:12 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/04 15:59:37 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/03 14:47:13 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ class Fixed {
         static const int _fix = 8;
 	public:
 		Fixed();
-		Fixed(const Fixed& a);
 		Fixed(const int nb);
 		Fixed(const float nb);
+		Fixed(const Fixed& a);
+		Fixed& operator=(const Fixed& a);
 		~Fixed();
 		
 		int	getRawbits() const;
@@ -33,17 +34,17 @@ class Fixed {
 		float toFloat() const;
 		int toInt() const;
 
-		bool operator>(Fixed& a) const;
-		bool operator<(Fixed& a) const;
-		bool operator>=(Fixed& a) const;
-		bool operator<=(Fixed& a) const;
-		bool operator==(Fixed& a) const;
-		bool operator!=(Fixed& a) const;
+		bool operator>(const Fixed& a) const;
+		bool operator<(const Fixed& a) const;
+		bool operator>=(const Fixed& a) const;
+		bool operator<=(const Fixed& a) const;
+		bool operator==(const Fixed& a) const;
+		bool operator!=(const Fixed& a) const;
 
-		Fixed operator+(Fixed a) const;
-		Fixed operator-(Fixed a) const;
-		Fixed operator*(Fixed a) const;
-		Fixed operator/(Fixed a) const;
+		Fixed operator+(const Fixed a) const;
+		Fixed operator-(const Fixed a) const;
+		Fixed operator*(const Fixed a) const;
+		Fixed operator/(const Fixed a) const;
 		
 		Fixed& operator++();
 		Fixed& operator--();
@@ -55,8 +56,6 @@ class Fixed {
 		static Fixed min(Fixed& a, Fixed& b);
 		static Fixed min(const Fixed& a, const Fixed& b);
 		
-		
-		std::ostream& display(std::ostream& out) const;
 	};
 	
 std::ostream& operator<<(std::ostream& out, const Fixed& a);

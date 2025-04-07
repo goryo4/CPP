@@ -6,12 +6,11 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:34:55 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/28 15:55:48 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 14:14:04 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-
 
 void	Harl::debug(void){
 	std::cout << "did you have a good level ?\n";
@@ -22,37 +21,25 @@ void	Harl::info(void){
 }
 
 void	Harl::warning(void){
-	std::cout << "attention, the agument can to be wrong\n";
+	std::cout << "attention, the argument can to be wrong\n";
 }
 
 void	Harl::error(void){
 	std::cout << "there are an error\n";
 }
 
-void    Harl::complain(std::string level){	
+void    Harl::complain(std::string level){
+	void (Harl::*levels[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string _level[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	
 	int i;
 	for (i = 0; i < 4; ++i)
 		if (_level[i] == level)
-			break ;
-	switch (i)
-	{
-		case 0:
-			Harl::debug();
-			break;
-		case 1:
-			Harl::info();
-			break;
-		case 2:
-			Harl::warning();
-			break;
-		case 3:
-			Harl::error();
-			break;
-		case 4:
-			std::cout << "wrong level\n";
-	}
+		{
+			(this->*levels[i])();
+			return ;
+		}
+	std::cout << "wrong level\n";
 	return ;
 }
 

@@ -6,26 +6,24 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:44:47 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 15:04:04 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/28 15:09:13 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
 Brain::Brain(){
-	static int i = 0;
+	int i = 0;
 	
-	if (i >= 100)
+	while (i < 100)
 	{
-		std::cout << "ideas is full\n";
-		return ;
+		ideas[i] = "";
+		i++;
 	}
-    ideas[i] = "";
-    i++;
     std::cout << "Default Brain constructor called\n";
 }
 
-Brain::Brain(Brain& a){
+Brain::Brain(const Brain& a){
 	int i = 0;
 	
 	while (i < 100)
@@ -36,7 +34,7 @@ Brain::Brain(Brain& a){
     std::cout << "copy Brain constructor called\n";
 }
 
-Brain &Brain::operator=(Brain& a){
+Brain &Brain::operator=(const Brain& a){
     int i = 0;
 	
 	if (this != &a)
@@ -51,6 +49,14 @@ Brain &Brain::operator=(Brain& a){
 	return (*this);
 }
 
+void	Brain::setIdeas(std::string idea, int i){
+	ideas[i] = idea;
+}
+
+std::string	Brain::getIdea(int i){
+	return (ideas[i]);
+}
+
 Brain::~Brain(){
-	std::cout << "Cat desstructor called\n";
+	std::cout << "Brain destructor called\n";
 }

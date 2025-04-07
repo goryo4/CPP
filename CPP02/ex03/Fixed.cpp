@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:10:51 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/04 14:43:18 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/03 15:01:16 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,35 @@ Fixed::Fixed (){
 	//std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(const Fixed& a){
-	nbr = a.getRawbits();
+Fixed::Fixed(const Fixed& a): nbr(a.getRawbits()){
 	//std::cout << "Copy constructor called\n";
 }
 
-Fixed::Fixed(int nb){
-	nbr = nb * (1 << _fix);
+Fixed::Fixed(int nb): nbr(nb * (1 << _fix)){
 	//std::cout << "int constructor called\n";
 }
 
-Fixed::Fixed(float nb){
-	nbr = static_cast<int>(roundf(nb * (1 << _fix)));
+Fixed::Fixed(float nb): nbr(static_cast<int>(roundf(nb * (1 << _fix)))){
 	//std::cout << "float constructor called\n";
+}
+
+Fixed &Fixed::operator=(const Fixed& a){
+	//std::cout << "Copy operator constructor called\n";
+	if(this != &a)
+		nbr = a.getRawbits();
+	return (*this);
 }
 
 float	Fixed::toFloat(void) const{
 	return static_cast<float>(nbr) / (1 << _fix);
 }
 
-
-bool	Fixed::operator>(Fixed& a) const{
-	if (nbr > a.getRawbits())
-		return (true);
-	else
-		return (false);
-}
+// bool	Fixed::operator>(Fixed& a) const{
+// 	if (nbr > a.getRawbits())
+// 		return (true);
+// 	else
+// 		return (false);
+// }
 
 bool	Fixed::operator>(const Fixed& a) const{
 	if (nbr > a.getRawbits())
@@ -51,12 +54,12 @@ bool	Fixed::operator>(const Fixed& a) const{
 		return (false);
 }
 
-bool	Fixed::operator<(Fixed& a) const{
-	if (nbr < a.getRawbits())
-		return (true);
-	else
-		return (false);
-}
+// bool	Fixed::operator<(Fixed& a) const{
+// 	if (nbr < a.getRawbits())
+// 		return (true);
+// 	else
+// 		return (false);
+// }
 
 bool	Fixed::operator<(const Fixed& a) const{
 	if (nbr < a.getRawbits())
@@ -65,47 +68,47 @@ bool	Fixed::operator<(const Fixed& a) const{
 		return (false);
 }
 
-bool	Fixed::operator>=(Fixed& a) const{
+bool	Fixed::operator>=(const Fixed& a) const{
 	if (nbr >= a.getRawbits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	Fixed::operator<=(Fixed& a) const{
+bool	Fixed::operator<=(const Fixed& a) const{
 	if (nbr <= a.getRawbits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	Fixed::operator==(Fixed& a) const{
+bool	Fixed::operator==(const Fixed& a) const{
 	if (nbr == a.getRawbits())
 		return (true);
 	else
 		return (false);
 }
 
-bool	Fixed::operator!=(Fixed& a) const{
+bool	Fixed::operator!=(const Fixed& a) const{
 	if (nbr != a.getRawbits())
 		return (true);
 	else
 		return (false);
 }
 
-Fixed	Fixed::operator+(Fixed a) const{
+Fixed	Fixed::operator+(const Fixed a) const{
 	return Fixed(toFloat() + a.toFloat());
 }
 
-Fixed	Fixed::operator-(Fixed a) const{
+Fixed	Fixed::operator-(const Fixed a) const{
 	return Fixed(toFloat() - a.toFloat());
 }
 
-Fixed	Fixed::operator*(Fixed a) const{
+Fixed	Fixed::operator*(const Fixed a) const{
 	return Fixed(toFloat() * a.toFloat());
 }
 
-Fixed	Fixed::operator/(Fixed a) const{
+Fixed	Fixed::operator/(const Fixed a) const{
 	return Fixed(toFloat() / a.toFloat());
 }
 
@@ -159,13 +162,9 @@ Fixed Fixed::min(const Fixed& a, const Fixed& b){
 		return (b);
 }
 
-std::ostream& Fixed::display(std::ostream& out) const{
-	out << toFloat();
-	return (out);
-}
-
 std::ostream& operator<<(std::ostream& out, const Fixed& a){
-	return a.display(out);
+	out << a.toFloat();
+	return (out);
 }
 
 int	Fixed::toInt() const{

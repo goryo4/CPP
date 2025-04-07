@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:45:45 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 15:07:14 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/28 15:38:49 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ class   Cat : public Animal{
 		Brain *c_Brain;
 	public:
         Cat();
-		Cat(Cat& a);
-		Cat& operator=(Cat& a);
+		Cat(const Cat& a);
+		Cat& operator=(const Cat& a);
 		~Cat();
 
-		void makeSound();
+		Brain* getBrain() const;
+		void	newIdea(int i, std::string idea);
+		void	printIdea(int i);
+		void makeSound() const;
 };
 
 #endif

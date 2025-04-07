@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:01:41 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 14:17:55 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/28 13:28:35 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class   WrongAnimal{
         std::string type;
 	public:
 		WrongAnimal();
-		WrongAnimal(WrongAnimal& a);
-		WrongAnimal& operator=(WrongAnimal& a);
+		WrongAnimal(const WrongAnimal& a);
+		WrongAnimal& operator=(const WrongAnimal& a);
 		 ~WrongAnimal();
 
 		void makeSound();
-		std::string getType();
+		const std::string getType() const;
 };
 
 #endif

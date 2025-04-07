@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:55:56 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/25 15:09:54 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 11:33:21 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    PhoneBook::AddContact(const class Contact& ct)
     return ;
 }
 
-int	GoodIndex(std::string num, int i)
+int	PhoneBook::GoodIndex(std::string num, int i)
 {
 	if (num == "1" && i >= 1)
 		return (1);
@@ -55,19 +55,23 @@ int	GoodIndex(std::string num, int i)
 	return (0);
 }
 
-void PhoneBook::Display(void){
+int PhoneBook::Display(void){
 	std::string num;
 	int j = -1;
 	
 	if (i == 0)
-		return ;
+		return (0);
+	std::cout << "    INDEX|      NAME|  LASTNAME|  NICKNAME" << std::endl;
     while (++j < i)
 		Contact[j].DisplayAllContact(j + 1);
 	while (GoodIndex(num, i) == 0)
 	{
 		std::cout << "chosen up to the index " << i << std::endl;
 		std::cin >> num;
+		if (std::cin.eof())
+			return (1);
 	}
 	std::stringstream(num) >> j;
 	Contact[j - 1].DisplayContact();
+	return (0);
 }

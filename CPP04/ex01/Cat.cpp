@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:52:41 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 15:08:26 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/28 15:54:00 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,39 @@ Cat::Cat() : Animal(){
     std::cout << "Default Cat constructor called\n";
 }
 
-Cat::Cat(Cat& a) : Animal(a){
+Cat::Cat(const Cat& a) : Animal(a){
+    c_Brain = new Brain(*a.getBrain());
     type = a.getType();
     std::cout << "copy Cat constructor called\n";
 }
 
-Cat &Cat::operator=(Cat& a){
+Cat &Cat::operator=(const Cat& a){
     if (this != &a)
-		type = a.getType();
+	{
+        delete c_Brain;
+        c_Brain = new Brain(*a.getBrain());
+       	type = a.getType();
+    }
 	std::cout << "operator Cat constructor called\n";
 	return (*this);
 }
 
-void	Cat::makeSound(){
+Brain* Cat::getBrain() const{
+    return (c_Brain);
+}
+void	Cat::makeSound() const{
 	std::cout << "Miaou\n";
+}
+
+void    Cat::newIdea(int i, std::string idea){
+    c_Brain->setIdeas(idea, i);
+}
+
+void    Cat::printIdea(int i){
+    std::cout << c_Brain->getIdea(i) << std::endl;
 }
 
 Cat::~Cat(){
     delete c_Brain;
-	std::cout << "Cat desstructor called\n";
+	std::cout << "Cat destructor called\n";
 }

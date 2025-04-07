@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:04:12 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 14:08:11 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/28 14:14:31 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ void	WrongAnimal::makeSound(){
 }
 
 WrongAnimal::~WrongAnimal(){
-	std::cout << "WrongAnimal desstructor called\n";
+	std::cout << "WrongAnimal tor called\n";
 }

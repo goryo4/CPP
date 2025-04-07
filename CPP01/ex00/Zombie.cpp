@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:24:59 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/26 14:17:44 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 15:06:48 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 Zombie::Zombie(void)
 {
-    _name = "zuu";
+    _name = "Zuu";
     std::cout << "class created" << std::endl;
-    
+}
+
+Zombie::Zombie(std::string name)
+{
+    _name = name;
+    std::cout << "class created" << std::endl;
 }
 
 Zombie::~Zombie()

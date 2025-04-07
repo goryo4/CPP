@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:29:12 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 15:07:19 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/28 15:16:58 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ class   Dog : public Animal{
 		Brain *d_Brain;
 	public:
         Dog();
-		Dog(Dog& a);
-		Dog& operator=(Dog& a);
+		Dog(const Dog& a);
+		Dog& operator=(const Dog& a);
 		~Dog();
 
-		void makeSound();
+		Brain* getBrain() const;
+		void	new_idea(int i, std::string idea);
+		void	print_idea(int i);
+		void makeSound() const;
 };
 
 #endif

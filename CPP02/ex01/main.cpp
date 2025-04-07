@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:07:06 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/03 14:55:52 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/03 12:08:28 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(void){
 	Fixed c(42.42f);
 	Fixed d(b);
 
-	a = Fixed(1234.4321f);
+	a = c;
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;

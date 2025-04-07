@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:17:09 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/27 13:14:39 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 12:52:07 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 class HumanB
 {
 	private:
+	Weapon* weapon;
     std::string _name;
 	public:
-        Weapon weapon;
 		HumanB(std::string name);
 		~HumanB();
 
-		void	attack();
+		void	attack() const;
+		void	setWeapon(Weapon& W);
 };
 
 #endif

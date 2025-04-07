@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:52:56 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/24 15:22:26 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 11:14:31 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 {
 	if (argc < 2)
 	{
-		std::cout << "IT MUST HAVE LEATS 2 ARGUMENT" << std::endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
 	for (int i = 1; argv[i]; ++i){

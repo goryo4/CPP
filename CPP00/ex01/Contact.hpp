@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:57:20 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/25 15:08:31 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/24 17:01:58 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Contact {
 		std::string	phone_number;
 		std::string	darkest_secret;
 	public:
-		//Contact();
 		void Name();
 		void LastName();
 		void NickName();

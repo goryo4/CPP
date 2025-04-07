@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:12:24 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/27 16:05:11 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 17:01:39 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@ void	new_file(std::string line, std::ofstream &outfile, std::string	s1, std::str
 		size_t i = 0;
 		if (*str == s1[i])
 		{
-			for (int j = 0; str[j] == s1[i]; ++j)
-			i++;
+			for (int j = 0; str[j] && s1[i] && str[j] == s1[i]; ++j)
+				i++;
 			if (i == s1.length())
 			{
 				outfile << s2;
-				str += i;
+				str += i - 1;
 			}
+			else
+				outfile << *str;
 		}
-		outfile << *str;
+		else
+			outfile << *str;
 	}
 }
 
@@ -43,7 +46,7 @@ std::string	line_in_file(std::ifstream& infile)
 			all_line = all_line + "\n";
 		all_line = all_line + line;
 	}
-	if (line.empty())
+	if (line.empty() && i != 0)
 		all_line = all_line + "\n";
 	return (all_line);
 }

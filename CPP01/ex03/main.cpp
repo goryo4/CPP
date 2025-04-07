@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:44:07 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/27 14:03:57 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 13:35:51 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,22 @@
 
 int main(void)
 {
-    Weapon w("sword");
-	HumanA human_a(w, "Bob");
-	HumanB human_b("Jim");
+    Weapon w = Weapon("sword");
+	HumanA Bob(w, "Bob");
+	HumanB Jim("Jim");
 
-	human_a.attack();
-	human_b.attack();
-
+	std::cout << "\n",
+	Bob.attack();
 	w.setType("bow");
-	human_b.weapon = w;
-	human_a.attack();
-	human_b.attack();
+	Bob.attack();
+	std::cout << "\n";
 
+
+    Weapon bow = Weapon("sword");
+	Jim.attack();
+	Jim.setWeapon(bow);
+	Jim.attack();
+	bow.setType("bow");
+	Jim.attack();
+	std::cout << "\n";
 }

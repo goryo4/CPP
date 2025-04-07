@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:36:02 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/26 13:02:06 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 11:40:21 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void    Account::makeDeposit(int deposit) {
 	_amount += _nbDeposits;
 	_totalAmount += _amount - p_amount;
 	_displayTimestamp();
-	std::cout << "index:" << i << ";p_amount:" << p_amount << ";deposits:" << _nbDeposits << ";amount:" << _amount << ";nb_deposits:1" << std::endl;
+	std::cout << "index:" << i << ";p_amount:" << p_amount << ";deposit:" << _nbDeposits << ";amount:" << _amount << ";nb_deposits:1" << std::endl;
 	i++;
 	_totalNbDeposits++;
 }

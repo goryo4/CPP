@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:27:17 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 14:28:53 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/28 13:23:35 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int main()
 	
 	std::cout << "\n--------SOUND--------\n\n";
 	
-	i->makeSound();
 	j->makeSound();
+	i->makeSound();
 	meta->makeSound();
 	meta2->makeSound();
 	k->makeSound();

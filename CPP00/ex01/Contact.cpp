@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:47:29 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/25 15:11:23 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 11:33:55 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,29 +46,48 @@ void Contact::DisplayAllContact(int i){
 	std::string first = name;
 	std::string second = last_name;
 	std::string third = nickname;
+	size_t len;
 	
-	std::cout << i << "|";
+	std::cout << "        " << i << "|";
 	if (first.length() > 10)
 	{
 		first.erase(9);
 		std::cout << first << "." << "|";
 	}
 	else
-		std::cout << first << "|";
+	{
+		len = 10 - first.length();
+		for (size_t j = 0; j < len; ++j)
+			std::cout << " ";
+		std::cout << first;
+		std::cout << "|";
+	}
 	if (second.length() > 10)
 	{
 		second.erase(9);
 		std::cout << second << "." << "|";
 	}
 	else
-		std::cout << second << "|";
+	{
+		len = 10 - second.length();
+		for (size_t j = 0; j < len; ++j)
+			std::cout << " ";
+		std::cout << second;
+		std::cout << "|";
+	}
 	if (third.length() > 10)
 	{
 		third.erase(9);
 		std::cout << third << "." << std::endl;
 	}
 	else
-		std::cout << third << std::endl;
+	{
+		len = 10 - third.length();
+		for (size_t j = 0; j < len; ++j)
+			std::cout << " ";
+		std::cout << third;
+		std::cout << std::endl;
+	}
 }
 
 void	Contact::DisplayContact(void){

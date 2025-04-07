@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:34:55 by ygorget           #+#    #+#             */
-/*   Updated: 2025/02/28 15:59:12 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/03/27 17:08:58 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void    Harl::complain(std::string level){
 		case 3:
 			Harl::error();
 			break;
-		case 4:
+		default:
 			std::cout << "wrong level\n";
 	}
 	return ;
