@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yolan <yolan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 12:58:09 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/07 15:02:13 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:15:53 by yolan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define CHARACTER_HPP
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
+
 
 class Character : public ICharacter
 {
