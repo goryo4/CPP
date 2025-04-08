@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yolan <yolan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:02:35 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/07 18:58:14 by yolan            ###   ########.fr       */
+/*   Updated: 2025/04/08 16:34:21 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,34 +42,32 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &msource){
 	return (*this);
 }
 
-AMateria *MateriaSource::getMateria() const{
-	return (*materia);
-}
-
 void	MateriaSource::learnMateria(AMateria *m){
-	static int i = 0;
-
-	if (i > 3)
-	{
-		std::cout << "i can't more materia\n";
-		return ;
+	if (!m)
+		std::cout << "m is NULL\n";
+	for (int i = 0; i < 4; ++i){
+		if (!materia[i]){
+			materia[i] = m->clone();
+			return ;
+		}
 	}
-	materia[i] = m;
-	i++;
+	std::cout << "it's full\n";
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type){
-	int i = 0;
-
-	for (; materia[i]; ++i)
-		if (materia[i]->getType() == type)
-			break ;
-	if (i > 3 || !materia[i])
-		return 0;
-	return (materia[i]);
+	for (int i = 0;i < 4 ; ++i){
+		if (materia[i] && materia[i]->getType() == type)
+		{
+			std::cout << type << std::endl;
+			return (materia[i]->clone());
+		}
+	}
+	return 0;
 }
 
 MateriaSource::~MateriaSource(){
-    for (int i = 0; i < 4; ++i)
-        delete materia[i];
+    for (int i = 0; i < 4; ++i){
+		delete materia[i];
+		materia[i] = NULL;
+	}
 }

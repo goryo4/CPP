@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yolan <yolan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 12:58:09 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/07 19:15:53 by yolan            ###   ########.fr       */
+/*   Updated: 2025/04/08 15:44:06 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class Character : public ICharacter
     private:
         std::string _name;
         AMateria* bag[4];
+        AMateria** floor;
+        int size;
     public:
         Character();
         Character(std::string const &name);
@@ -30,6 +32,7 @@ class Character : public ICharacter
         ~Character();
         
         std::string const &getName() const;
+        int const &getSize() const;
         void equip(AMateria* m);
         void unequip(int idx);
         void use(int idx, ICharacter& target);

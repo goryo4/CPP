@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yolan <yolan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 12:48:14 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/07 19:17:43 by yolan            ###   ########.fr       */
+/*   Updated: 2025/04/08 16:30:22 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ class Ice : public AMateria
 {
     public :
         Ice ();
+		Ice(std::string const &type);
+        Ice (AMateria const &m);
+        AMateria &operator=(AMateria const &m);
         ~Ice ();
         
 		AMateria* clone() const;
