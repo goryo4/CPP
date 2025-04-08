@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:08:55 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 12:20:09 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/08 16:50:09 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 /* ************************************************************************** */
 ClapTrap::ClapTrap(){
 	Name = "tom";
-	Hit_points = 0;
-	Energy_points = 0;
+	Hit_points = 10;
+	Energy_points = 10;
 	Attack_damage = 0;
+    std::cout << "ClapTrap default called\n";
 }
 
-ClapTrap::ClapTrap(std::string _Name){
+ClapTrap::ClapTrap(const std::string _Name){
     Name = _Name;
 	Hit_points = 10;
 	Energy_points = 10;
@@ -30,12 +31,12 @@ ClapTrap::ClapTrap(std::string _Name){
     std::cout << "constructor called\n";
 }
 
-ClapTrap::ClapTrap(ClapTrap& a){
+ClapTrap::ClapTrap(const ClapTrap& a){
 	*this = a;
 	std::cout << "ClapTrap copy created\n";
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap& a){
+ClapTrap &ClapTrap::operator=(const ClapTrap& a){
 	if (this != &a)
 	{
 		Name = a.Name;
@@ -63,8 +64,11 @@ int ClapTrap::getAttack(){ return (Attack_damage);}
 /*                         		FONCTION                                      */
 /* ************************************************************************** */
 void	ClapTrap::attack(const std::string& target){
-	if (Hit_points < 0)
+	if (Hit_points <= 0)
+	{
+		std::cout << "Claptrap " << Name << " is died\n";
 		return ;
+	}
 	if (Energy_points > 0)
 		Energy_points -= 1;
 	else
@@ -76,16 +80,21 @@ void	ClapTrap::attack(const std::string& target){
 }
 
 void	ClapTrap::takeDamage(unsigned int amount){
-	if (Hit_points < 0)
+	if (Hit_points <= 0)
+	{
+		std::cout << "Claptrap " << Name << " is died\n";
 		return ;
+	}
 	std::cout << "ClapTrap " << Name << " take " << amount << " points of damage!\n";
-	if (Hit_points < 0)
-		std::cout << "Claptrap " << Name << "is died\n";
+	Hit_points -= amount;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount){
-	if (Hit_points < 0)
+	if (Hit_points <= 0)
+	{
+		std::cout << "Claptrap " << Name << " is died\n";
 		return ;
+	}
 	if (Energy_points > 0)
 		Energy_points -= 1;
 	else
@@ -94,9 +103,7 @@ void	ClapTrap::beRepaired(unsigned int amount){
 		return ;
 	}
 	std::cout << "ClapTrap " << Name << " repairs itself, it regains " << amount << " hit points\n";
-	Hit_points -= amount;
-	if (Hit_points < 0)
-		std::cout << "Claptrap " << Name << "is died\n";
+	Hit_points += amount;
 }
 
 /* ************************************************************************** */

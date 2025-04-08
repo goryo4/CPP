@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:28:08 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 12:20:27 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/08 16:50:45 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ FragTrap::FragTrap(): ClapTrap(){
     std::cout << "FragTrap default created\n";
 }
 
-FragTrap::FragTrap(FragTrap& a): ClapTrap(a){
+FragTrap::FragTrap(const FragTrap& a): ClapTrap(a){
     std::cout << "FragTrap copy created\n";
 }
 
-FragTrap &FragTrap::operator=(FragTrap& a){
+FragTrap &FragTrap::operator=(const FragTrap& a){
 	if (this != &a)
 	{
 		Name = a.Name;
@@ -38,7 +38,7 @@ FragTrap &FragTrap::operator=(FragTrap& a){
 	return (*this);
 }
 
-FragTrap::FragTrap(std::string _Name) : ClapTrap(_Name){
+FragTrap::FragTrap(const std::string _Name) : ClapTrap(_Name){
 	Hit_points = 100;
 	Energy_points = 100;
 	Attack_damage = 30;

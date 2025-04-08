@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:43:05 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/06 16:36:26 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/08 16:48:12 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ ScavTrap::ScavTrap(): ClapTrap(){
 	std::cout << "ScavTrap default created\n";
 }
 
-ScavTrap::ScavTrap(ScavTrap& a): ClapTrap(a){
-	std::cout << "ClapTrap copy created\n";
+ScavTrap::ScavTrap(const ScavTrap& a): ClapTrap(a){
+	std::cout << "ScavTrap copy created\n";
 }
 
-ScavTrap &ScavTrap::operator=(ScavTrap& a){
+ScavTrap &ScavTrap::operator=(const ScavTrap& a){
 	if (this != &a)
 	{
 		Name = a.Name;
@@ -34,11 +34,11 @@ ScavTrap &ScavTrap::operator=(ScavTrap& a){
 		Energy_points = a.Energy_points;
 		Attack_damage = a.Attack_damage;
 	}
-	std::cout << "ClapTrap copy created\n";
+	std::cout << "ScavTrap operator created\n";
 	return (*this);
 }
 
-ScavTrap::ScavTrap(std::string _Name) : ClapTrap(_Name) {
+ScavTrap::ScavTrap(const std::string _Name) : ClapTrap(_Name) {
 	Hit_points = 100;
 	Energy_points = 50;
 	Attack_damage = 20;
@@ -50,8 +50,11 @@ ScavTrap::ScavTrap(std::string _Name) : ClapTrap(_Name) {
 /*                         		FONCTION                                      */
 /* ************************************************************************** */
 void	ScavTrap::attack(const std::string& target){
-	if (Hit_points < 0)
+	if (Hit_points <= 0)
+	{
+		std::cout << "Scavtrap " << Name << " is died\n";
 		return ;
+	}
 	if (Energy_points > 0)
 		Energy_points -= 1;
 	else
