@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:41:42 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/08 16:36:45 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/10 12:31:40 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,14 @@ Character &Character::operator=(Character const &character){
 	{
 		size = character.getSize();
 		delete[] floor;
-		floor = new AMateria*[size];
-		for (int i = 0; i < size; ++i)
-			floor[i] = character.floor[i]->clone();
+		if (size > 0)
+		{
+			floor = new AMateria*[size];
+			for (int i = 0; i < size; ++i)
+				floor[i] = character.floor[i]->clone();
+		}
+		else
+			floor = NULL;
 		for (int i = 0; i < 4; ++i)
 		{
 			delete bag[i];

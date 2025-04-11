@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:52:41 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/28 15:54:00 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/10 11:35:48 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ Cat &Cat::operator=(const Cat& a){
 Brain* Cat::getBrain() const{
     return (c_Brain);
 }
+
 void	Cat::makeSound() const{
 	std::cout << "Miaou\n";
 }

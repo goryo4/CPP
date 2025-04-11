@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yolan <yolan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 12:32:31 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/07 19:03:53 by yolan            ###   ########.fr       */
+/*   Updated: 2025/04/10 12:24:37 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class AMateria;
 class ICharacter
 {
     public:
-        virtual ~ICharacter();
+        virtual ~ICharacter() {};
         virtual std::string const &getName() const = 0;
         virtual void equip(AMateria* m) = 0;
         virtual void unequip(int idx) = 0;

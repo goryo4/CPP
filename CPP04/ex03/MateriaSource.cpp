@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:02:35 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/08 16:34:21 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/10 11:57:02 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,8 @@ void	MateriaSource::learnMateria(AMateria *m){
 AMateria *MateriaSource::createMateria(std::string const &type){
 	for (int i = 0;i < 4 ; ++i){
 		if (materia[i] && materia[i]->getType() == type)
-		{
-			std::cout << type << std::endl;
 			return (materia[i]->clone());
 		}
-	}
 	return 0;
 }
 

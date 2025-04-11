@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:08:55 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/08 16:49:47 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/09 13:26:06 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,13 @@
 /* ************************************************************************** */
 /*                         		CONSTRUCTOR                                   */
 /* ************************************************************************** */
-ClapTrap::ClapTrap(){
-	Name = "tom";
-	Hit_points = 10;
-	Energy_points = 10;
-	Attack_damage = 0;
+ClapTrap::ClapTrap()
+	: Name("Tom"), Hit_points(10), Energy_points(10), Attack_damage(0){
     std::cout << "ClapTrap default called\n";
 }
 
-ClapTrap::ClapTrap(const std::string _Name){
-    Name = _Name;
-	Hit_points = 10;
-	Energy_points = 10;
-	Attack_damage = 0;
+ClapTrap::ClapTrap(const std::string _Name)
+	: Name(_Name), Hit_points(10), Energy_points(10), Attack_damage(0){
     std::cout << "constructor called\n";
 }
 
@@ -49,13 +43,6 @@ ClapTrap &ClapTrap::operator=(const ClapTrap& a){
 }
 
 /* ************************************************************************** */
-/*                         	GETTER / SETTER                                   */
-/* ************************************************************************** */
-std::string ClapTrap::getName(){ return (Name);}
-
-void	ClapTrap::setName(std::string _Name){Name = _Name;}
-
-/* ************************************************************************** */
 /*                         		FONCTION                                      */
 /* ************************************************************************** */
 void	ClapTrap::attack(const std::string& target){
@@ -68,7 +55,7 @@ void	ClapTrap::attack(const std::string& target){
 		Energy_points -= 1;
 	else
 	{
-		std::cout << "Claptrap " << Name << "has not energy\n";
+		std::cout << "Claptrap " << Name << " has not energy\n";
 		return ;
 	}
 	std::cout << "ClapTrap " << Name << " attacks " << target << ", causing " << Attack_damage << " points of damage!\n";
@@ -94,7 +81,7 @@ void	ClapTrap::beRepaired(unsigned int amount){
 		Energy_points -= 1;
 	else
 	{
-		std::cout << "Claptrap " << Name << "has not energy\n";
+		std::cout << "Claptrap " << Name << " has not energy\n";
 		return ;
 	}
 	std::cout << "ClapTrap " << Name << " repairs itself, it regains " << amount << " hit points\n";

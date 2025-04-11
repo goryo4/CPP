@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:02:39 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 11:42:04 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/09 13:26:10 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,10 @@ class ClapTrap{
 		int Attack_damage;
     public:
 		ClapTrap();
-		ClapTrap(ClapTrap& a);
-		ClapTrap& operator=(ClapTrap& a);
-		ClapTrap(std::string _Name);
+		ClapTrap(ClapTrap const& a);
+		ClapTrap& operator=(ClapTrap const& a);
+		ClapTrap(const std::string _Name);
 		~ClapTrap();
-		
-		std::string getName();
-		int getHit();
-		int getEnergy();
-		int getAttack();
-
-		void	setName(std::string _Name);
 		
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);

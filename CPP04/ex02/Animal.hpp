@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:27:38 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/10 14:58:22 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/10 11:39:16 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class   Animal{
         std::string type;
 	public:
 		Animal() ;
-		Animal(Animal& a);
-		Animal& operator=(Animal& a);
+		Animal(Animal const &a);
+		Animal& operator=(Animal const &a);
 		virtual ~Animal();
 
-		virtual void makeSound() = 0;
-		virtual std::string getType();
+		virtual void makeSound() const = 0;
+		virtual std::string getType() const;
 };
 
 #endif

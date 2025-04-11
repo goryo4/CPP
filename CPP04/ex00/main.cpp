@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:27:17 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/28 13:23:35 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/09 15:45:23 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,15 @@ int main()
 	
 	std::cout << "\n--------SOUND--------\n\n";
 	
+	std::cout << "Dog : ";
 	j->makeSound();
+	std::cout << "Cat : ";
 	i->makeSound();
+	std::cout << "Animal : ";
 	meta->makeSound();
+	std::cout << "WrongAnimal : ";
 	meta2->makeSound();
+	std::cout << "WrongCat : ";
 	k->makeSound();
 
 	std::cout << "\n--------DESTRUCTOR--------\n\n";

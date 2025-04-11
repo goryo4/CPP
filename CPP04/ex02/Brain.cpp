@@ -6,26 +6,20 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:44:47 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/28 14:14:42 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/10 11:50:51 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
 Brain::Brain(){
-	static int i = 0;
-	
-	if (i >= 100)
-	{
-		std::cout << "ideas is full\n";
-		return ;
+	for (int j = 0; j < 100; ++j){
+		ideas[j] = "";
 	}
-    ideas[i] = "";
-    i++;
     std::cout << "Default Brain constructor called\n";
 }
 
-Brain::Brain(Brain& a){
+Brain::Brain(Brain const &a){
 	int i = 0;
 	
 	while (i < 100)
@@ -36,7 +30,7 @@ Brain::Brain(Brain& a){
     std::cout << "copy Brain constructor called\n";
 }
 
-Brain &Brain::operator=(Brain& a){
+Brain &Brain::operator=(Brain const &a){
     int i = 0;
 	
 	if (this != &a)
@@ -49,6 +43,14 @@ Brain &Brain::operator=(Brain& a){
 	}
 	std::cout << "operator Brain constructor called\n";
 	return (*this);
+}
+
+void	Brain::setIdeas(std::string idea, int i){
+	ideas[i] = idea;
+}
+
+std::string	Brain::getIdea(int i){
+	return (ideas[i]);
 }
 
 Brain::~Brain(){

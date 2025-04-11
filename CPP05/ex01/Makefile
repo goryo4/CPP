@@ -5,26 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/07 18:22:34 by yolan             #+#    #+#              #
-#    Updated: 2025/04/10 12:37:11 by ygorget          ###   ########.fr        #
+#    Created: 2025/04/11 11:39:55 by ygorget           #+#    #+#              #
+#    Updated: 2025/04/11 14:18:09 by ygorget          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= AMateria
-CC= c++
-FLAGS= -g -Wall -Werror -Wextra -std=c++98
-SRC=	main.cpp	AMateria.cpp	Character.cpp\
-		Cure.cpp	Ice.cpp			MateriaSource.cpp
-		
+NAME= Bureaucrat
+CXX= c++
+FLAGS= -Wall -Werror -Wextra -std=c++98
+SRC= main.cpp	Bureaucrat.cpp	Form.cpp\
+
 OBJ= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(FLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CXX) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

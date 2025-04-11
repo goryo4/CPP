@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 12:27:17 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/28 16:18:51 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/10 12:00:32 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,14 @@ int main()
 	Cat *c1 = new Cat(*c);
 	Cat *c2 = new Cat();
 	*c2 = *c;
+	std::cout << std::endl;
+
 	c->printIdea(0);
 	c->printIdea(1);
 	c->printIdea(5);
 	delete c;
+	std::cout << std::endl;
+
 	c1->printIdea(0);
 	c2->printIdea(1);
 
@@ -60,10 +64,14 @@ int main()
 	Dog *d1 = new Dog(*d);
 	Dog *d2 = new Dog();
 	*d2 = *d;
+	std::cout << std::endl;
+
 	d->print_idea(0);
 	d->print_idea(1);
 	d->print_idea(5);
 	delete d;
+	std::cout << std::endl;
+
 	d1->print_idea(0);
 	d2->print_idea(1);
 

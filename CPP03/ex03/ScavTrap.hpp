@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:35:06 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/06 15:47:05 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/09 13:21:36 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@
 class ScavTrap : virtual public ClapTrap {
     public:
         ScavTrap();
-		ScavTrap(ScavTrap& a);
-		ScavTrap& operator=(ScavTrap& a);
-        ScavTrap(std::string _Name);
+		ScavTrap(ScavTrap const& a);
+		ScavTrap& operator=(ScavTrap const& a);
+        ScavTrap(const std::string _Name);
         ~ScavTrap();
-
-		int getEnergy();
 
         void	attack(const std::string& target);
         void	guardGate();

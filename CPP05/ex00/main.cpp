@@ -5,27 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:09:20 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/09 15:25:25 by ygorget          ###   ########.fr       */
+/*   Created: 2025/04/11 11:40:31 by ygorget           #+#    #+#             */
+/*   Updated: 2025/04/11 13:21:26 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "Bureaucrat.hpp"
 
-int main(void){
-    DiamondTrap monster;
-    DiamondTrap monster2("Sam");
-    DiamondTrap monster3(monster);
-    
-    std::cout << std::endl;
-	for (int i = 0; i < 10; ++i){
-		monster.attack("to");
-		std::cout << i << std::endl;
+int	main()
+{
+	try
+	{
+		Bureaucrat b("Tom", 151);
+		std::cout << b;
 	}
-    monster.whoAmI();
-    monster3.attack("to");
-
-
-    std::cout << std::endl;
-
+	catch (const std::exception& e)
+	{
+		std::cout << "Exception is : " << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat d("Jim", 0);
+		std::cout << d;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Exception is : " << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat c("Sam", 40);
+		c.decrementGrade(20);
+		c.incrementGrade(100);
+		std::cout << c;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Exception is : " << e.what() << std::endl;
+	}
 }

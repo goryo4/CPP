@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:33:01 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 15:04:43 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/10 11:34:28 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ class   Brain{
         std::string ideas[100];
     public:
         Brain();
-		Brain(Brain& a);
-		Brain& operator=(Brain& a);
+		Brain(const Brain& a);
+		Brain& operator=(const Brain& a);
 		~Brain();
 
-        void    setIdeas(Animal& a);
+        void    setIdeas(std::string idea, int i);
+        std::string getIdea(int i);
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:09:20 by ygorget           #+#    #+#             */
-/*   Updated: 2025/03/07 12:11:42 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/09 12:27:55 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int main(void){
     FragTrap character2("Sam");
     FragTrap character3("Bob");
 	
+    std::cout << std::endl;
+
     character.attack("tom");
     character = character2;
     
@@ -25,4 +27,5 @@ int main(void){
     character.attack("tom");
     character.attack("tom");
     character.highFivesGuys();
+    std::cout << std::endl;
 }

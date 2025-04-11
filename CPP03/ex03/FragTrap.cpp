@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:28:08 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/08 16:51:03 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/09 13:21:29 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,8 @@ FragTrap::FragTrap(const FragTrap& a): ClapTrap(a){
 
 FragTrap &FragTrap::operator=(const FragTrap& a){
 	if (this != &a)
-	{
-		Name = a.Name;
-		Hit_points = a.Hit_points;
-		Energy_points = a.Energy_points;
-		Attack_damage = a.Attack_damage;
-	}
-	std::cout << "FragTrap operation created\n";
+		ClapTrap::operator=(a);
+	std::cout << "FragTrap operator created\n";
 	return (*this);
 }
 
@@ -44,13 +39,6 @@ FragTrap::FragTrap(const std::string _Name) : ClapTrap(_Name){
 	Attack_damage = 30;
 	std::cout << "FragTrap " << _Name << " created\n";
 }
-
-/* ************************************************************************** */
-/*                         		GETTER		                                  */
-/* ************************************************************************** */
-int FragTrap::getHit(){ return (Hit_points);}
-
-int FragTrap::getAttack(){ return (Attack_damage);}
 
 /* ************************************************************************** */
 /*                         		FONCTION                                      */
