@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 13:26:40 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/14 15:15:43 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/14 15:54:53 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
-    private :
+    protected :
         const std::string	_name;
 		bool				_sign;
 		const int			_gradeSign;
 		const int			_gradeExec;
 	public :
-		Form();
-		Form(const std::string name, const int _gradeSign, const int _gradeExec);
-		Form(Form const &f);
-		Form &operator=(Form const &f);
-		~Form();
+		AForm();
+		AForm(const std::string name, const int _gradeSign, const int _gradeExec);
+		AForm(AForm const &f);
+		AForm &operator=(AForm const &f);
+		virtual ~AForm();
+
+		virtual std::string getName() const;
+		virtual bool getSign() const;
+		virtual int getGradeSign() const;
+		virtual int getGradeExec() const;
 		
-		std::string getName() const;
-		bool getSign() const;
-		int getGradeSign() const;
-		int getGradeExec() const;
-		
-		void	beSigned(Bureaucrat const &b);
+		virtual void	beSigned(Bureaucrat const &b) = 0;
 		
 		class GradeTooHighExecption : public std::exception{
 		public:
@@ -58,6 +58,6 @@ class Form
 		};
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 
 #endif
