@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:18:48 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/15 15:02:43 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/15 15:20:59 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ class ShrubberyCreationForm : public AForm
     	std::string	_target;
 	public :
 		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string const &target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &f);
 		AForm &operator=(ShrubberyCreationForm const &f);
 		~ShrubberyCreationForm();
-
+		
 		void	execute(Bureaucrat const &executor) const;
 };
 

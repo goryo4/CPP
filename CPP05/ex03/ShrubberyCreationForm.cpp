@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:46:16 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/15 15:02:37 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/15 15:21:55 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm()
     : AForm("shrubbery", 145, 137), _target("home"){}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target)
+	: AForm("shrubbery", 145, 137), _target(target){}
+
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &f)
 	: AForm(f), _target("home"){}

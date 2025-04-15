@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:30:23 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/14 15:51:07 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/15 15:02:28 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@
 class RobotomyRequestForm : public AForm
 {
     private :
-        const std::string	_name;
-    	bool				_sign;
-    	const int			_gradeSign;
-    	const int			_gradeExec;
+		std::string	_target;
 	public :
 		RobotomyRequestForm();
-		RobotomyRequestForm(AForm const &f);
-		AForm &operator=(AForm const &f);
-	
-		std::string getName() const;
-		bool getSign() const;
-		int getGradeSign() const;
-		int getGradeExec() const;
+		RobotomyRequestForm(RobotomyRequestForm const &f);
+		AForm &operator=(RobotomyRequestForm const &f);
+		~RobotomyRequestForm();
 
-		void	beSigned(Bureaucrat const &b);
+		void	execute(Bureaucrat const &executor) const;
+
+	class RobotomyFailed: public std::exception{
+	public:
+		virtual const char *what() const throw(){
+				return "robotomized failed 50% of the time";
+			}
+	};
 };
 
 #endif
