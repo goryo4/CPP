@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:03:05 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/15 15:19:12 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/16 14:15:25 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@
 
 Intern::Intern() {}
    
-Intern::Intern(Intern const &i){}
+Intern::Intern(Intern const &i){(void)i;}
 
-Intern &Intern::operator=(Intern const &i) {return *this;}
+Intern &Intern::operator=(Intern const &i) {
+	(void)i;
+	return *this;
+}
 
 AForm *Intern::makeForm(std::string nameForm, std::string target){
 	std::string form[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
@@ -43,4 +46,7 @@ AForm *Intern::makeForm(std::string nameForm, std::string target){
 			std::cerr << "Intern couldn't find the form: " << nameForm << "\n";
 			return NULL;
 	}
-}		
+}	
+
+Intern::~Intern() {}
+

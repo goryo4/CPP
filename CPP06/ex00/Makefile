@@ -6,16 +6,15 @@
 #    By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/11 11:39:55 by ygorget           #+#    #+#              #
-#    Updated: 2025/04/16 14:13:50 by ygorget          ###   ########.fr        #
+#    Updated: 2025/04/16 15:10:03 by ygorget          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= Form
+NAME= Convert
 CXX= c++
 FLAGS= -Wall -Werror -Wextra -std=c++98
-SRC=	main.cpp					Bureaucrat.cpp			AForm.cpp\
-		PresidentialPardonForm.cpp	RobotomyRequestForm.cpp	ShrubberyCreationForm.cpp\
-		Intern.cpp
+SRC= main.cpp	ScalarConverter.cpp\
+
 OBJ= $(SRC:.cpp=.o)
 
 all: $(NAME)
