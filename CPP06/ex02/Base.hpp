@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 16:07:57 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/18 16:19:18 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/22 11:31:16 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,7 @@
 class Base
 {
     public :
-        Base();
         virtual ~Base();
-
-        Base* generate(void);
-        void identify(Base* p);
-        void identify(Base &p);
 };
 
 #endif

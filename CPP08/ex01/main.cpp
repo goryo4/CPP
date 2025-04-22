@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A.hpp                                              :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 16:13:16 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/22 11:31:32 by ygorget          ###   ########.fr       */
+/*   Created: 2025/04/22 16:12:47 by ygorget           #+#    #+#             */
+/*   Updated: 2025/04/22 16:13:28 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef A_HPP
-#define A_HPP
+#include "Span.hpp"
 
-#include "Base.hpp"
-
-class A : public Base
+int main()
 {
-};
+	Span sp = Span(5);
 
-#endif
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+
+	return 0;
+}

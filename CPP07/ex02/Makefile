@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/11 11:39:55 by ygorget           #+#    #+#              #
-#    Updated: 2025/04/22 11:57:55 by ygorget          ###   ########.fr        #
+#    Created: 2025/04/22 13:32:03 by ygorget           #+#    #+#              #
+#    Updated: 2025/04/22 13:57:17 by ygorget          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= Base
+NAME= array
 CXX= c++
 FLAGS= -Wall -Werror -Wextra -std=c++98
-SRC= main.cpp	Base.cpp\
+SRC=	main.cpp\
 
 OBJ= $(SRC:.cpp=.o)
 

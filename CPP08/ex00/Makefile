@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/11 11:39:55 by ygorget           #+#    #+#              #
-#    Updated: 2025/04/22 11:57:55 by ygorget          ###   ########.fr        #
+#    Created: 2025/04/22 14:00:46 by ygorget           #+#    #+#              #
+#    Updated: 2025/04/22 14:10:48 by ygorget          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= Base
+NAME= easyfind
 CXX= c++
 FLAGS= -Wall -Werror -Wextra -std=c++98
-SRC= main.cpp	Base.cpp\
+SRC= main.cpp\
 
 OBJ= $(SRC:.cpp=.o)
 

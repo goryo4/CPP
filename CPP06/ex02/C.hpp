@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 16:13:16 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/18 16:19:05 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/22 11:31:47 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@
 
 class C : public Base
 {
-    private :
-        std::string _type;
-    public :
-        C();
-        ~C();
 };
 
 #endif

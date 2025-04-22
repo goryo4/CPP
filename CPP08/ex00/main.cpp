@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A.hpp                                              :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 16:13:16 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/22 11:31:32 by ygorget          ###   ########.fr       */
+/*   Created: 2025/04/22 14:00:41 by ygorget           #+#    #+#             */
+/*   Updated: 2025/04/22 14:52:43 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef A_HPP
-#define A_HPP
+#include "easyfind.h"
 
-#include "Base.hpp"
+int main(){
+    std::vector<int> vec;
 
-class A : public Base
-{
-};
-
-#endif
+    for (int i = 0; i < 100; ++i){
+        vec.push_back(i);
+	}
+	::easyfind(vec, 100);
+}
