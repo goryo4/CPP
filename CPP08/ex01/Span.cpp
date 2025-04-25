@@ -6,7 +6,7 @@
 /*   By: ygorget <ygorget@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:13:43 by ygorget           #+#    #+#             */
-/*   Updated: 2025/04/22 16:26:14 by ygorget          ###   ########.fr       */
+/*   Updated: 2025/04/24 12:37:39 by ygorget          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,44 @@
 
 Span::Span(unsigned int const N): _size(N){}
 
-void    Span::addNumber(int value){
-    unsigned int size = vec.size();
+Span::Span(const Span& s): vec(s.vec), _size(s._size){}
 
-	if (size == _size)
-		throw ;
+Span &Span::operator=(const Span& s){
+	if (this != &s){
+		*this = s;
+	}
+	return *this;
+}
+
+void    Span::addNumber(int value){
+	if (vec.size() == _size)
+		throw fullVector();
 	vec.push_back(value);
 }
 
 unsigned int	Span::shortestSpan(){
-	unsigned int size = vec.size();
-	unsigned int	shortest = 4294967294;
-	unsigned int i;
-	unsigned int count = 1;
+	unsigned int	shortest = MAX_UINT;
 
-	if (size <= 1)
-		throw ;
-    for (std::vector<int>::iterator it =  vec.begin(); it != vec.end(); ++it){
-		i = count;
-		while (i < vec.size())
-		{
-			if ((unsigned int)((*it - vec[i] < 0) ? -(*it - vec[i]) : (*it - vec[i])) < shortest)
-				shortest = ((*it - vec[i] < 0) ? -(*it - vec[i]) : (*it - vec[i]));
-			i++;
-		}
-		count++;
+	if(vec.size() <= 1)
+		throw EmptyVector();
+	
+	std::vector<int> tmp = vec;
+	std::sort(tmp.begin(), tmp.end());
+
+    for (unsigned int i = 0; i < tmp.size() - 1; ++i){
+			long diff = static_cast<long>(tmp[i + 1]) - static_cast<long>(tmp[i]);
+			if ( diff < shortest)
+				shortest = diff;
 	}
 	return shortest;
 }
 
 unsigned int	Span::longestSpan(){
-	unsigned int size = vec.size();
-	int	longest = 0;
-	unsigned int i = 1;
-	
-	if (size <= 1)
-		throw ;
-    for (std::vector<int>::iterator it =  vec.begin(); it != vec.end(); ++it){
-		i = 1;
-		while (i < vec.size())
-		{
-			if (((*it - vec[i] < 0) ? -(*it - vec[i]) : (*it - vec[i]))  > longest)
-				longest = ((*it - vec[i] < 0) ? -(*it - vec[i]) : (*it - vec[i]));
-			i++;
-		}
-	}
-	return longest;
+	if(vec.size() <= 1)
+		throw EmptyVector();
+	int min = *std::min_element(vec.begin(), vec.end());
+	int max = *std::max_element(vec.begin(), vec.end());
+	return static_cast<unsigned int>(max - min);
 }
 
 Span::~Span(){}
